@@ -1,7 +1,8 @@
 #include <unistd.h>
 
 int main(int argc, char **argv){
-    if(argc != 2 ){ // if more than 1 param
+    if(argc != 2 ) // if more than 1 param stop
+    {
         write(1,"\n",1);
         return 0;
     }
