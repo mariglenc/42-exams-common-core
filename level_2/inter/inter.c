@@ -1,68 +1,47 @@
 #include <unistd.h>
 
-int check_char_not_exist(char *res, char c)
+int	ft_putchar(char c);
+
+int	main(int ac, char **av)
 {
-	int i = 0;
+	int	i = 0, j;
+	// create an array of int that will act as a lookup table
+	// 256 is because of the ascii table, each one will
+	// correspond to a single character
+	int	lookup[256] = {};
 
-	while (res[i]) // "c"
+	if (ac == 3)
 	{
-		if (res[i] == c)
-			return 1;
-		i++;
-	}
-	return 0;
-}
-
-int check_char_exist(char *str1, char *str2)
-{
-	int i = 0;
-
-	while (str1[i] || str2[i]) // "c"
-	{
-		if (str1[i] == str2[i])
-			return 1;
-		i++;
-	}
-	return 0;
-}
-
-int main(int argc, char **argv)
-{
-	int i;
-	int j = 0;
-	char res[256];
-
-	if (argc == 3)
-	{
-		res[0] = '\0';
-
-		i = 0;
-		while (argv[1][i])
+		// looping over the whole string
+		while (av[1][i])
 		{
-			if (!check_char_not_exist(res, argv[1][i]))
+			j = 0;
+			// comparing against every character in the
+			// second string
+			while (av[2][j])
 			{
-				res[j] = argv[1][i];
+				// checking if characters are the same
+				// as well as checking in the lookup
+				// table if the character not already
+				// found
+				if (av[1][i] == av[2][j] && !lookup[(int)av[2][j]])
+				{
+					// marking the character found
+					// in the lookup table
+					lookup[(int)av[2][j]] = 1;
+					// writing the character
+					// to the screen
+					ft_putchar(av[2][j]);
+				}
 				j++;
-				res[j] = '\0';
-				write(1, &argv[1][i], 1);
-			}
-			i++;
-		}
-
-		i = 0;
-		while (argv[2][i])
-		{
-			if (!check_char_not_exist(res, argv[2][i]))
-			{
-				res[j] = argv[2][i];
-				j++;
-				res[j] = '\0';
-				write(1, &argv[2][i], 1);
 			}
 			i++;
 		}
 	}
+	ft_putchar('\n');
+}
 
-	write(1, "\n", 1);
-	return 0;
+int	ft_putchar(char c)
+{
+	return write(1, &c, 1);
 }
