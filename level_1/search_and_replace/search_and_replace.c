@@ -6,14 +6,6 @@ int main(int argc, char **argv)
         write(1,"\n",1);
         return 0;
     }
-    // int count = 0;
-    // while(argv[2][count] || argv[3][count]){
-    //     count ++;
-    // }
-    // if(count != 1){
-    //     write(1,"\n",1);
-    //     return 0;
-    // }
     if (argv[2][1] != '\0' || argv[3][1] != '\0')
     {
         write(1, "\n", 1);
