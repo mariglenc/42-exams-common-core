@@ -15,7 +15,8 @@ char	*ft_strpbrk(const char *s1, const char *s2)
 			{
 				if (s1[j] == s2[i])
 				{
-					return ((char *)s1 + j);
+					// return ((char *)s1 + j);
+					return (char *)&s1[j];
 				}
 				i++;
 			}
@@ -32,6 +33,6 @@ char	*ft_strpbrk(const char *s1, const char *s2)
 int	main(void)
 {
 	char *str;
-	str = ft_strpbrk("hello", "h");
+	str = ft_strpbrk("hello", "l");
 	printf("%s \n", str);
 }
