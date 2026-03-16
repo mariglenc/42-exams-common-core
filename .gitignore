@@ -1,0 +1,29 @@
+# Compiled C binaries (no extension on Linux/Mac, or any extensionless executable)
+# Matches compiled outputs like: level_2/union/try2, level_2/wdmatch/try7, etc.
+
+# Ignore all extensionless files (compiled C executables)
+*
+!*.*
+!*/
+
+# Keep all .c source files
+!*.c
+
+# Keep all .h header files
+!*.h
+
+# Keep this .gitignore itself
+!.gitignore
+
+# Keep any Makefiles
+!Makefile
+!makefile
+
+# macOS junk
+.DS_Store
+
+# Common C build artifacts
+*.o
+*.a
+*.out
+a.out
