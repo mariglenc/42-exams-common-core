@@ -3,7 +3,10 @@
 char	*ft_itoa(int nbr)
 {
     int n = nbr;
-    int len = (n <= 0);
+    int len = 0;
+    if(n <= 0)
+        len = 1;
+
     char *str;
 
     if (n == -2147483648)
@@ -26,8 +29,8 @@ char	*ft_itoa(int nbr)
     str = malloc(len + 1);
     if (!str)
         return NULL;
-    str[len] = '\0';
 
+    str[len] = '\0';
     if (n < 0)
     {
         str[0] = '-';
@@ -44,3 +47,34 @@ char	*ft_itoa(int nbr)
     }
     return str;
 }
+
+
+/*
+0-incldue stdlib.h (for malloc)
+1-we duplicate the nr from nbr paramter 
+2-initialize the length if (n =< 0) is 1 otherwise 0 (because of the sign)
+
+scenar 1 -> 2147483648
+    calculate the min value of int by 2 in power of 31
+    allocate mem with malloc
+    set the value of all string indexes manually
+    return string
+
+-find length of nr while iterating it and by increasing length and dividing by 10 on each iteration
+-allocate the memory for string with length + 1 (for null pointer) -> check allocation if not return NULL
+-add null pointer at the end of the string -> str[len] = '\0';
+
+scnario 2 -> for nr 0
+    add the first index [0]  to a string '0';
+
+scnario 3 -> for negative nr
+    add the first index [0] with string '-'
+    change the sign of nr
+
+scnario 4 -> for postivie nr
+    start at str[--len] and give the value of module of nr + '0'
+    divide nr by ten
+
+return str
+
+*/
