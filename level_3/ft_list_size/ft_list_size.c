@@ -12,3 +12,11 @@ int ft_list_size(t_list *begin_list)
 
     return (i);
 }
+
+/*
+0-include ft_list.h
+1-iterate over begin_list
+2-on each iteration move begin_list to the next node
+3-on each iteration increase i +1
+4-return i
+*/

@@ -1,5 +1,6 @@
 #include <stdlib.h>
 
+// s-> "asd asd sdfsdf sdf sdfsd"
 static int	word_count(char *s)
 {
 	int	i = 0;
@@ -17,6 +18,15 @@ static int	word_count(char *s)
 	return (count);
 }
 
+/*
+0-declare count and i
+1-iterate over string s
+2-on each iteration iterate over empty spaces
+3-on each iteration count the first string of word
+3-on each iteration increse the index for the rest of the word (since counter increased once)
+4-return counter
+*/
+
 static char	*word_dup(char *s, int start, int end)
 {
 	char	*word;
@@ -30,6 +40,15 @@ static char	*word_dup(char *s, int start, int end)
 	word[i] = '\0';
 	return (word);
 }
+
+/*
+0-declare word pointer and index
+1-allocate memory for that word specified at the start-end integers
+2-iterate over start<end
+3-on each iteration fill word[i] with s[start] (also post increase the index and start)
+4-set NULL TERMINATOR at the end of the word
+5-return word
+*/
 
 char	**ft_split(char *str)
 {
@@ -54,3 +73,15 @@ char	**ft_split(char *str)
 	result[j] = NULL;
 	return (result);
 }
+
+/*
+0-declare index (i and j), start and result (array of arrays)
+1-allocate memory for result with sizeof(char *) X word_count(str) + 1
+2-iterate over str
+3-on each iteration iterate over str[i] for empty spaces ' ' and increasy index (for starting spaces)
+4-on each iteration set the start with i after spaces
+5-on each iteration iterate over str[i] && str[i] != ' ' and increse index (for the rest of word since start set once to i and now we need end)
+6-on each iteration if i > start then fill the resul[j] to word duplicate
+7-set the end of the result to NULL
+8-return result
+*/
