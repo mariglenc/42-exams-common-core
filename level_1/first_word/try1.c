@@ -6,7 +6,7 @@ int main(int argc, char **argv){
         while(argv[1][i] == 32 || argv[1][i] == 9)
             i++;
 
-        while(argv[1][i] && argv[1][i] != 32 && argv[1][i] !=9){
+        while(argv[1][i] && argv[1][i] != 32 && argv[1][i] !=9){ // argv[1][i] != '\0' -> differnet from null terminator
             write(1,&argv[1][i],1);
             i++;
         }
