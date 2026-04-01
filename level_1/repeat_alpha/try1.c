@@ -2,8 +2,7 @@
 
 int main(int argc, char **argv){
     if(argc == 2){
-        int i = 0;
-        int j;
+        int j, i = 0;
         while(argv[1][i]){
             if(argv[1][i] > 64 && argv[1][i] < 91){ // uppercase
                 j = 0;
