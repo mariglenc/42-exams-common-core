@@ -18,6 +18,6 @@ int	main(int argc, char **argv){
 0 - also check that argument 2 and 3 are single characters (av[2][1] == '\0' && av[3][1] == '\0')
 1 - loop through each character of the string (av[1])
 2 - if current character matches the search character (av[2][0]): replace it with av[3][0]
-3 - print the character (original or replaced)
+3 - print the original character
 4 - print newline
 */
