@@ -1,6 +1,7 @@
 #include <stdlib.h>
+#include <stdio.h>
 
-// s-> "asd asd sdfsdf sdf sdfsd"
+// s-> " asd asd sdfsdf sdf sdfsd \0"
 static int	word_count(char *s)
 {
 	int	i = 0;
@@ -85,3 +86,18 @@ char	**ft_split(char *str)
 7-set the end of the result to NULL
 8-return result
 */
+
+int main(void)
+{
+    char *test = "abc def ghi";
+    char **res = ft_split(test);
+
+    int i = 0;
+    while (res[i])
+    {
+        printf("%s\n", res[i]);
+        i++;
+    }
+
+    return 0;
+}
