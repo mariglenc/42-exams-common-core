@@ -11,8 +11,7 @@ int main(int argc, char **argv)
     while(argv[1][i])
     {
         char c = argv[1][i];
-        if(c>= 'A' && c<='Z' )
-        {
+        if(c >= 'A' && c <= 'Z' ){
             c +=32;
             write(1,&c,1);
         } 
